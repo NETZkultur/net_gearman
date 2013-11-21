@@ -201,7 +201,7 @@ class Connection
             }
         }
 
-        $d = implode("\x00", $data);
+        $d = @implode("\x00", $data);
 
         $cmd = "\0REQ" . pack(
             "NN",
