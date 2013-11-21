@@ -40,9 +40,9 @@ class Client implements ServerSetting {
 	/**
 	 * Our randomly selected connection
 	 *
-	 * @var resource $conn An open socket to Gearman
+	 * @var resource $gearmanServerConnections An open socket to Gearman
 	 */
-	protected $conn = array();
+	protected $gearmanServerConnections = array();
 
 	/**
 	 * @var string[] List of gearman servers
@@ -123,7 +123,19 @@ class Client implements ServerSetting {
 	 * @return resource A connection to a Gearman server
 	 */
 	protected function getConnection() {
-		return $this->conn[array_rand($this->conn)];
+		$connection = null;
+		if (count($this->gearmanServerConnections) == 0) {
+			throw new Exception("Can't get a connection, there are no active Servers left");
+		}
+
+		while ($connection == null) {
+			$randomServer = array_rand($this->gearmanServerConnections);
+			if (array_key_exists($randomServer, $this->gearmanServerConnections)) {
+				$connection = $this->gearmanServerConnections[$randomServer];
+			}
+		}
+
+		return $connection;
 	}
 
 	/**
@@ -329,20 +341,7 @@ class Client implements ServerSetting {
 	 * @see Net\Gearman\Set, Net\Gearman\Task
 	 */
 	public function runSet(Set $set, $timeout = null) {
-		foreach ($this->getServers() as $server) {
-			try {
-				$conn = Connection::connect($server, $timeout);
-				if (!Connection::isConnected($conn)) {
-					unset($this->servers[$server]);
-					continue;
-				}
-
-				$this->conn[] = $conn;
-			} catch (Exception $e) {
-				unset($this->servers[$server]);
-				continue;
-			}
-		}
+		$this->initializeTheServers($timeout);
 
 		$totalTasks = $set->tasksCount;
 		$taskKeys = array_keys($set->tasks);
@@ -384,7 +383,7 @@ class Client implements ServerSetting {
 
 			$write = null;
 			$except = null;
-			$read = $this->conn;
+			$read = $this->gearmanServerConnections;
 			socket_select($read, $write, $except, $socket_timeout);
 			foreach ($read as $socket) {
 				$resp = Connection::read($socket);
@@ -449,14 +448,14 @@ class Client implements ServerSetting {
 	 * @return      void
 	 */
 	public function disconnect() {
-		if (!is_array($this->conn) || !count($this->conn)) {
+		if (!is_array($this->gearmanServerConnections) || !count($this->gearmanServerConnections)) {
 			return;
 		}
 
-		foreach ($this->conn as $conn) {
+		foreach ($this->gearmanServerConnections as $conn) {
 			Connection::close($conn);
 		}
-		$this->conn = array();
+		$this->gearmanServerConnections = array();
 	}
 
 	/**
@@ -466,5 +465,25 @@ class Client implements ServerSetting {
 	 */
 	public function __destruct() {
 		$this->disconnect();
+	}
+
+	/**
+	 * @param $timeout
+	 */
+	private function initializeTheServers($timeout) {
+		foreach ($this->getServers() as $server) {
+			try {
+				$conn = Connection::connect($server, $timeout);
+				if (!Connection::isConnected($conn)) {
+					unset($this->servers[$server]);
+					continue;
+				}
+
+				$this->gearmanServerConnections[] = $conn;
+			} catch (Exception $e) {
+				unset($this->servers[$server]);
+				continue;
+			}
+		}
 	}
 }
