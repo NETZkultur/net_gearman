@@ -39,7 +39,6 @@ use Net\Gearman\Exception;
  * @link      http://www.danga.com/gearman/
  * @see       Net_Gearman_Job_Common, Net_Gearman_Worker
  */
-class JobException extends Exception
-{
+class JobException extends Exception {
 
 }

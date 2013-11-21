@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.4.2" 
-         version="2.0" 
-         xmlns="http://pear.php.net/dtd/package-2.0" 
-         xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-                             http://pear.php.net/dtd/tasks-1.0.xsd
-                             http://pear.php.net/dtd/package-2.0
+<package packagerversion="1.4.2"
+         version="2.0"
+         xmlns="http://pear.php.net/dtd/package-2.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pear.php.net/dtd/package-2.0
                              http://pear.php.net/dtd/package-2.0.xsd">
     <name>Net_Gearman</name>
     <channel>pear.php.net</channel>
     <summary>A PHP interface to Danga's Gearman</summary>
-    <description>Gearman (http://www.danga.com/gearman) is a system to farm out work to other machines. It can load balance function calls to lots of machines and allows you to call functions between languages. It can also run all function calls in parallel.</description>
+    <description>Gearman (http://www.danga.com/gearman) is a system to farm out work to other machines. It can load
+        balance function calls to lots of machines and allows you to call functions between languages. It can also run
+        all function calls in parallel.
+    </description>
     <lead>
         <name>Joe Stump</name>
         <user>jstump</user>
@@ -48,48 +48,48 @@
             <dir name="Net">
                 <dir name="Gearman">
                     <file name="Client.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Connection.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Exception.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Job.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Manager.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Set.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Task.php"
-                          role="php" />
+                          role="php"/>
                     <file name="Worker.php"
-                          role="php" />
+                          role="php"/>
                     <dir name="Job">
                         <file name="Common.php"
-                              role="php" />
+                              role="php"/>
                         <file name="Exception.php"
-                              role="php" />
+                              role="php"/>
                     </dir>
                 </dir>
             </dir>
             <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                 <file name="SQL.php"
-                      role="doc" />
+                      role="doc"/>
                 <file name="Sum.php"
-                      role="doc" />
+                      role="doc"/>
                 <file name="tasks.php"
-                      role="doc" />
+                      role="doc"/>
                 <file name="worker.php"
-                      role="doc" />
+                      role="doc"/>
             </dir>
             <dir name="tests" role="test">
                 <file name="001-echo_req.phpt"
-                      role="test" /> 
+                      role="test"/>
                 <file name="010-client-call.phpt"
-                      role="test" /> 
+                      role="test"/>
                 <file name="012-client-runSet.phpt"
-                      role="test" /> 
+                      role="test"/>
                 <file name="tests-config.php"
-                      role="test" /> 
+                      role="test"/>
             </dir>
         </dir>
     </contents>
@@ -106,7 +106,7 @@
             </extension>
         </required>
     </dependencies>
-    <phprelease />
+    <phprelease/>
     <changelog>
         <release>
             <date>2009-03-12</date>
@@ -128,48 +128,48 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Manager.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -193,48 +193,48 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Manager.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -261,48 +261,48 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Manager.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -319,55 +319,55 @@
             </stability>
             <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
             <notes><![CDATA[
-                * Fixed a bug in writing to the socket so it keeps writing until all is written 
+                * Fixed a bug in writing to the socket so it keeps writing until all is written
             ]]></notes>
             <contents>
                 <dir name="/">
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Manager.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -394,48 +394,48 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Manager.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -464,48 +464,48 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Manager.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -532,46 +532,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -596,46 +596,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -665,46 +665,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -732,46 +732,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -799,46 +799,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -862,46 +862,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>
@@ -925,46 +925,46 @@
                     <dir name="Net">
                         <dir name="Gearman">
                             <file name="Client.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Connection.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Exception.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Job.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Set.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Task.php"
-                                  role="php" />
+                                  role="php"/>
                             <file name="Worker.php"
-                                  role="php" />
+                                  role="php"/>
                             <dir name="Job">
                                 <file name="Common.php"
-                                      role="php" />
+                                      role="php"/>
                                 <file name="Exception.php"
-                                      role="php" />
+                                      role="php"/>
                             </dir>
                         </dir>
                     </dir>
                     <dir name="examples" role="doc" baseinstalldir="doc/Net_Gearman">
                         <file name="SQL.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="Sum.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="tasks.php"
-                              role="doc" />
+                              role="doc"/>
                         <file name="worker.php"
-                              role="doc" />
+                              role="doc"/>
                     </dir>
                     <dir name="tests" role="test">
                         <file name="001-echo_req.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="010-client-call.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="012-client-runSet.phpt"
-                              role="test" /> 
+                              role="test"/>
                         <file name="tests-config.php"
-                              role="test" /> 
+                              role="test"/>
                     </dir>
                 </dir>
             </contents>

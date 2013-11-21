@@ -456,6 +456,7 @@ class Client implements ServerSetting {
 		foreach ($this->conn as $conn) {
 			Connection::close($conn);
 		}
+		$this->conn = array();
 	}
 
 	/**

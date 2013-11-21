@@ -1,26 +1,26 @@
 <?php
 namespace Net\Gearman;
 
-/**
- * Interface for Danga's Gearman job scheduling system
- *
- * PHP version 5.3.0+
- *
- * LICENSE: This source file is subject to the New BSD license that is
- * available through the world-wide-web at the following URI:
- * http://www.opensource.org/licenses/bsd-license.php. If you did not receive
- * a copy of the New BSD License and are unable to obtain it through the web,
- * please send a note to license@php.net so we can mail you a copy immediately.
- *
- * @category  Net
- * @package   Net_Gearman
- * @author    Joe Stump <joe@joestump.net>
- * @copyright 2007-2008 Digg.com, Inc.
- * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @version   CVS: $Id$
- * @link      http://pear.php.net/package/Net_Gearman
- * @link      http://www.danga.com/gearman/
- */
+	/**
+	 * Interface for Danga's Gearman job scheduling system
+	 *
+	 * PHP version 5.3.0+
+	 *
+	 * LICENSE: This source file is subject to the New BSD license that is
+	 * available through the world-wide-web at the following URI:
+	 * http://www.opensource.org/licenses/bsd-license.php. If you did not receive
+	 * a copy of the New BSD License and are unable to obtain it through the web,
+	 * please send a note to license@php.net so we can mail you a copy immediately.
+	 *
+	 * @category  Net
+	 * @package   Net_Gearman
+	 * @author    Joe Stump <joe@joestump.net>
+	 * @copyright 2007-2008 Digg.com, Inc.
+	 * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
+	 * @version   CVS: $Id$
+	 * @link      http://pear.php.net/package/Net_Gearman
+	 * @link      http://www.danga.com/gearman/
+	 */
 
 /**
  * Task class for creating Net_Gearman tasks
@@ -34,343 +34,338 @@ namespace Net\Gearman;
  * @link      http://www.danga.com/gearman/
  * @see       \Net\Gearman\Set, \Net\Gearman\Client
  */
-class Task
-{
-    /**
-     * The function/job to run
-     *
-     * @var string $func
-     */
-    public $func = '';
+class Task {
+	/**
+	 * The function/job to run
+	 *
+	 * @var string $func
+	 */
+	public $func = '';
 
-    /**
-     * Arguments to pass to function/job
-     *
-     * @var array $arg
-     */
-    public $arg = array();
+	/**
+	 * Arguments to pass to function/job
+	 *
+	 * @var array $arg
+	 */
+	public $arg = array();
 
-    /**
-     * Type of job
-     *
-     * Which type of job you wish this task to be ran as. Keep in mind that
-     * background jobs are "fire and forget" and DO NOT return results to the
-     * job server in a manner that you can actually retrieve.
-     *
-     * @var integer $type
-     * @see \Net\Gearman\Task::JOB_NORMAL
-     * @see \Net\Gearman\Task::JOB_BACKGROUND
-     * @see \Net\Gearman\Task::JOB_EPOCH
-     * @see \Net\Gearman\Task::JOB_HIGH
-     * @see \Net\Gearman\Task::JOB_HIGH_BACKGROUND
-     * @see \Net\Gearman\Task::JOB_LOW
-     * @see \Net\Gearman\Task::JOB_LOW_BACKGROUND
-     */
-    public $type = self::JOB_NORMAL;
+	/**
+	 * Type of job
+	 *
+	 * Which type of job you wish this task to be ran as. Keep in mind that
+	 * background jobs are "fire and forget" and DO NOT return results to the
+	 * job server in a manner that you can actually retrieve.
+	 *
+	 * @var integer $type
+	 * @see \Net\Gearman\Task::JOB_NORMAL
+	 * @see \Net\Gearman\Task::JOB_BACKGROUND
+	 * @see \Net\Gearman\Task::JOB_EPOCH
+	 * @see \Net\Gearman\Task::JOB_HIGH
+	 * @see \Net\Gearman\Task::JOB_HIGH_BACKGROUND
+	 * @see \Net\Gearman\Task::JOB_LOW
+	 * @see \Net\Gearman\Task::JOB_LOW_BACKGROUND
+	 */
+	public $type = self::JOB_NORMAL;
 
-    /**
-     * Handle returned from job server
-     *
-     * @var string $handle
-     * @see \Net\Gearman\Client
-     */
-    public $handle = '';
+	/**
+	 * Handle returned from job server
+	 *
+	 * @var string $handle
+	 * @see \Net\Gearman\Client
+	 */
+	public $handle = '';
 
-    /**
-     * The unique identifier for this job
-     *
-     * Keep in mind that a unique job is only unique to the job server it is
-     * submitted to. Gearman servers don't communicate with each other to
-     * ensure a job is unique across all workers.
-     *
-     * That being said, Gearman does group identical jobs sent to it and runs
-     * that job only once. If you send the job Sum with args 1, 2, 3 to the
-     * server 10 times in a second Gearman will only run that job once and then
-     * return the result 10 times.
-     *
-     * @var string $uniq
-     */
-    public $uniq = '';
+	/**
+	 * The unique identifier for this job
+	 *
+	 * Keep in mind that a unique job is only unique to the job server it is
+	 * submitted to. Gearman servers don't communicate with each other to
+	 * ensure a job is unique across all workers.
+	 *
+	 * That being said, Gearman does group identical jobs sent to it and runs
+	 * that job only once. If you send the job Sum with args 1, 2, 3 to the
+	 * server 10 times in a second Gearman will only run that job once and then
+	 * return the result 10 times.
+	 *
+	 * @var string $uniq
+	 */
+	public $uniq = '';
 
-    /**
-     * Is this task finished?
-     *
-     * @var boolean $finished
-     * @see \Net\Gearman\Set::finished()
-     * @see \Net\Gearman\Task::complete()
-     * @see \Net\Gearman\Task::fail()
-     */
-    public $finished = false;
+	/**
+	 * Is this task finished?
+	 *
+	 * @var boolean $finished
+	 * @see \Net\Gearman\Set::finished()
+	 * @see \Net\Gearman\Task::complete()
+	 * @see \Net\Gearman\Task::fail()
+	 */
+	public $finished = false;
 
-    /**
-     * The result returned from the worker
-     *
-     * @var object $result
-     */
-    public $result = '';
+	/**
+	 * The result returned from the worker
+	 *
+	 * @var object $result
+	 */
+	public $result = '';
 
-    /**
-     * Unix timestamp
-     *
-     * This allows you to schedule a background job to run at
-     * a specific moment in time
-     *
-     * @var int $epoch
-     */
-    public $epoch = 0;
+	/**
+	 * Unix timestamp
+	 *
+	 * This allows you to schedule a background job to run at
+	 * a specific moment in time
+	 *
+	 * @var int $epoch
+	 */
+	public $epoch = 0;
 
-    /**
-     * Callbacks registered for each state
-     *
-     * @var array $callback
-     * @see \Net\Gearman\Task::attachCallback()
-     * @see \Net\Gearman\Task::complete()
-     * @see \Net\Gearman\Task::status()
-     * @see \Net\Gearman\Task::fail()
-     */
-    protected $callback = array(
-        self::TASK_COMPLETE => array(),
-        self::TASK_FAIL     => array(),
-        self::TASK_STATUS   => array()
-    );
+	/**
+	 * Callbacks registered for each state
+	 *
+	 * @var array $callback
+	 * @see \Net\Gearman\Task::attachCallback()
+	 * @see \Net\Gearman\Task::complete()
+	 * @see \Net\Gearman\Task::status()
+	 * @see \Net\Gearman\Task::fail()
+	 */
+	protected $callback = array(
+		self::TASK_COMPLETE => array(),
+		self::TASK_FAIL     => array(),
+		self::TASK_STATUS   => array()
+	);
 
-    /**
-     * Normal job
-     *
-     * Normal jobs are ran against a worker with the result being returned
-     * all in the same thread (e.g. Your page will sit there waiting for the
-     * job to finish and return it's result).
-     *
-     * @var integer JOB_NORMAL
-     */
-    const JOB_NORMAL = 1;
+	/**
+	 * Normal job
+	 *
+	 * Normal jobs are ran against a worker with the result being returned
+	 * all in the same thread (e.g. Your page will sit there waiting for the
+	 * job to finish and return it's result).
+	 *
+	 * @var integer JOB_NORMAL
+	 */
+	const JOB_NORMAL = 1;
 
-    /**
-     * Background job
-     *
-     * Background jobs in Gearman are "fire and forget". You can check a job's
-     * status periodically, but you can't get a result back from it.
-     *
-     * @var integer JOB_BACKGROUND
-     */
-    const JOB_BACKGROUND = 2;
+	/**
+	 * Background job
+	 *
+	 * Background jobs in Gearman are "fire and forget". You can check a job's
+	 * status periodically, but you can't get a result back from it.
+	 *
+	 * @var integer JOB_BACKGROUND
+	 */
+	const JOB_BACKGROUND = 2;
 
-    /**
-     * High priority job
-     *
-     * @var integer JOB_HIGH
-     */
-    const JOB_HIGH = 3;
+	/**
+	 * High priority job
+	 *
+	 * @var integer JOB_HIGH
+	 */
+	const JOB_HIGH = 3;
 
-    /**
-     * High priority, background job
-     *
-     * @var integer JOB_HIGH
-     */
-    const JOB_HIGH_BACKGROUND = 4;
+	/**
+	 * High priority, background job
+	 *
+	 * @var integer JOB_HIGH
+	 */
+	const JOB_HIGH_BACKGROUND = 4;
 
-    /**
-     * LOW priority job
-     *
-     * @var integer JOB_LOW
-     */
-    const JOB_LOW = 5;
+	/**
+	 * LOW priority job
+	 *
+	 * @var integer JOB_LOW
+	 */
+	const JOB_LOW = 5;
 
-    /**
-     * Low priority, background job
-     *
-     * @var integer JOB_LOW_BACKGROUND
-     */
-    const JOB_LOW_BACKGROUND = 6;
+	/**
+	 * Low priority, background job
+	 *
+	 * @var integer JOB_LOW_BACKGROUND
+	 */
+	const JOB_LOW_BACKGROUND = 6;
 
-    /**
-     * Scheduled background job
-     *
-     * Background jobs in Gearman are "fire and forget". You can check a job's
-     * status periodically, but you can't get a result back from it.
-     *
-     * @var integer JOB_EPOCH
-     */
-    const JOB_EPOCH = 7;
+	/**
+	 * Scheduled background job
+	 *
+	 * Background jobs in Gearman are "fire and forget". You can check a job's
+	 * status periodically, but you can't get a result back from it.
+	 *
+	 * @var integer JOB_EPOCH
+	 */
+	const JOB_EPOCH = 7;
 
-    /**
-     * Callback of type complete
-     *
-     * The callback provided should be ran when the task has been completed. It
-     * will be handed the result of the task as its only argument.
-     *
-     * @var integer TASK_COMPLETE
-     * @see \Net\Gearman\Task::complete()
-     */
-    const TASK_COMPLETE = 1;
+	/**
+	 * Callback of type complete
+	 *
+	 * The callback provided should be ran when the task has been completed. It
+	 * will be handed the result of the task as its only argument.
+	 *
+	 * @var integer TASK_COMPLETE
+	 * @see \Net\Gearman\Task::complete()
+	 */
+	const TASK_COMPLETE = 1;
 
-    /**
-     * Callback of type fail
-     *
-     * The callback provided should be ran when the task has been reported to
-     * have failed by Gearman. No arguments are provided.
-     *
-     * @var integer TASK_FAIL
-     * @see \Net\Gearman\Task::fail()
-     */
-    const TASK_FAIL = 2;
+	/**
+	 * Callback of type fail
+	 *
+	 * The callback provided should be ran when the task has been reported to
+	 * have failed by Gearman. No arguments are provided.
+	 *
+	 * @var integer TASK_FAIL
+	 * @see \Net\Gearman\Task::fail()
+	 */
+	const TASK_FAIL = 2;
 
-    /**
-     * Callback of type status
-     *
-     * The callback provided should be ran whenever the status of the task has
-     * been updated. The numerator and denominator are passed as the only
-     * two arguments.
-     *
-     * @var integer TASK_STATUS
-     * @see \Net\Gearman\Task::status()
-     */
-    const TASK_STATUS = 3;
+	/**
+	 * Callback of type status
+	 *
+	 * The callback provided should be ran whenever the status of the task has
+	 * been updated. The numerator and denominator are passed as the only
+	 * two arguments.
+	 *
+	 * @var integer TASK_STATUS
+	 * @see \Net\Gearman\Task::status()
+	 */
+	const TASK_STATUS = 3;
 
-    /**
-     * Constructor
-     *
-     * @param string  $func Name of job to run
-     * @param mixed   $arg  List of arguments for job
-     * @param string  $uniq The unique id of the job
-     * @param integer $type Type of job to run task as
-     *
-     * @return \Net\Gearman\Task
-     * @throws \Net\Gearman\Exception
-     */
-    public function __construct($func, $arg, $uniq = null,
-                                $type = self::JOB_NORMAL, $epoch = 0)
-    {
-        $this->func = $func;
-        $this->arg  = $arg;
+	/**
+	 * Constructor
+	 *
+	 * @param string $func Name of job to run
+	 * @param mixed $arg List of arguments for job
+	 * @param string $uniq The unique id of the job
+	 * @param integer $type Type of job to run task as
+	 *
+	 * @return \Net\Gearman\Task
+	 * @throws \Net\Gearman\Exception
+	 */
+	public function __construct($func, $arg, $uniq = null,
+	                            $type = self::JOB_NORMAL, $epoch = 0) {
+		$this->func = $func;
+		$this->arg = $arg;
 
-        if (is_null($uniq)) {
-            $this->uniq = md5($func . serialize($arg) . $type);
-        } else {
-            $this->uniq = $uniq;
-        }
+		if (is_null($uniq)) {
+			$this->uniq = md5($func . serialize($arg) . $type);
+		} else {
+			$this->uniq = $uniq;
+		}
 
-        $type = (int) $type;
+		$type = (int)$type;
 
-        if ($type == self::JOB_EPOCH) {
-            $this->epoch = $epoch;
-        }
+		if ($type == self::JOB_EPOCH) {
+			$this->epoch = $epoch;
+		}
 
-        if ($type > 7) {
-            throw new Exception(
-                "Unknown job type: {$type}. Please see \Net\Gearman\Task::JOB_* constants."
-            );
-        }
+		if ($type > 7) {
+			throw new Exception(
+				"Unknown job type: {$type}. Please see \Net\Gearman\Task::JOB_* constants."
+			);
+		}
 
-        $this->type = $type;
-    }
+		$this->type = $type;
+	}
 
-    /**
-     * Attach a callback to this task
-     *
-     * @param callback $callback A valid PHP callback
-     * @param integer  $type     Type of callback
-     *
-     * @return $this
-     * @throws \Net\Gearman\Exception When the callback is invalid.
-     * @throws \Net\Gearman\Exception When the callback's type is invalid.
-     */
-    public function attachCallback($callback, $type = self::TASK_COMPLETE)
-    {
-        if (!is_callable($callback)) {
-            throw new Exception('Invalid callback specified');
-        }
+	/**
+	 * Attach a callback to this task
+	 *
+	 * @param callback $callback A valid PHP callback
+	 * @param integer $type Type of callback
+	 *
+	 * @return $this
+	 * @throws \Net\Gearman\Exception When the callback is invalid.
+	 * @throws \Net\Gearman\Exception When the callback's type is invalid.
+	 */
+	public function attachCallback($callback, $type = self::TASK_COMPLETE) {
+		if (!is_callable($callback)) {
+			throw new Exception('Invalid callback specified');
+		}
 
-        if (!in_array(
-            $type,
-            array(self::TASK_COMPLETE, self::TASK_FAIL, self::TASK_STATUS)
-        )) {
-            throw new Exception('Invalid callback type specified');
-        }
+		if (!in_array(
+			$type,
+			array(self::TASK_COMPLETE, self::TASK_FAIL, self::TASK_STATUS)
+		)
+		) {
+			throw new Exception('Invalid callback type specified');
+		}
 
-        $this->callback[$type][] = $callback;
-        return $this;
-    }
+		$this->callback[$type][] = $callback;
 
-    /**
-     * Return all callbacks.
-     *
-     * @return array
-     */
-    public function getCallbacks()
-    {
-        return $this->callback;
-    }
+		return $this;
+	}
 
-    /**
-     * Run the complete callbacks
-     *
-     * Complete callbacks are passed the name of the job, the handle of the
-     * job and the result of the job (in that order).
-     *
-     * @param object $result JSON decoded result passed back
-     *
-     * @return void
-     * @see \Net\Gearman\Task::attachCallback()
-     */
-    public function complete($result)
-    {
-        $this->finished = true;
-        $this->result   = $result;
+	/**
+	 * Return all callbacks.
+	 *
+	 * @return array
+	 */
+	public function getCallbacks() {
+		return $this->callback;
+	}
 
-        if (!count($this->callback[self::TASK_COMPLETE])) {
-            return;
-        }
+	/**
+	 * Run the complete callbacks
+	 *
+	 * Complete callbacks are passed the name of the job, the handle of the
+	 * job and the result of the job (in that order).
+	 *
+	 * @param object $result JSON decoded result passed back
+	 *
+	 * @return void
+	 * @see \Net\Gearman\Task::attachCallback()
+	 */
+	public function complete($result) {
+		$this->finished = true;
+		$this->result = $result;
 
-        foreach ($this->callback[self::TASK_COMPLETE] as $callback) {
-            call_user_func($callback, $this->func, $this->handle, $result);
-        }
-    }
+		if (!count($this->callback[self::TASK_COMPLETE])) {
+			return;
+		}
 
-    /**
-     * Run the failure callbacks
-     *
-     * Failure callbacks are passed the task object job that failed
-     *
-     * @return void
-     * @see \Net\Gearman\Task::attachCallback()
-     */
-    public function fail()
-    {
-        $this->finished = true;
-        if (!count($this->callback[self::TASK_FAIL])) {
-            return;
-        }
+		foreach ($this->callback[self::TASK_COMPLETE] as $callback) {
+			call_user_func($callback, $this->func, $this->handle, $result);
+		}
+	}
 
-        foreach ($this->callback[self::TASK_FAIL] as $callback) {
-            call_user_func($callback, $this);
-        }
-    }
+	/**
+	 * Run the failure callbacks
+	 *
+	 * Failure callbacks are passed the task object job that failed
+	 *
+	 * @return void
+	 * @see \Net\Gearman\Task::attachCallback()
+	 */
+	public function fail() {
+		$this->finished = true;
+		if (!count($this->callback[self::TASK_FAIL])) {
+			return;
+		}
 
-    /**
-     * Run the status callbacks
-     *
-     * Status callbacks are passed the name of the job, handle of the job and
-     * the numerator/denominator as the arguments (in that order).
-     *
-     * @param integer $numerator   The numerator from the status
-     * @param integer $denominator The denominator from the status
-     *
-     * @return void
-     * @see \Net\Gearman\Task::attachCallback()
-     */
-    public function status($numerator, $denominator)
-    {
-        if (!count($this->callback[self::TASK_STATUS])) {
-            return;
-        }
+		foreach ($this->callback[self::TASK_FAIL] as $callback) {
+			call_user_func($callback, $this);
+		}
+	}
 
-        foreach ($this->callback[self::TASK_STATUS] as $callback) {
-            call_user_func($callback,
-                           $this->func,
-                           $this->handle,
-                           $numerator,
-                           $denominator);
-        }
-    }
+	/**
+	 * Run the status callbacks
+	 *
+	 * Status callbacks are passed the name of the job, handle of the job and
+	 * the numerator/denominator as the arguments (in that order).
+	 *
+	 * @param integer $numerator The numerator from the status
+	 * @param integer $denominator The denominator from the status
+	 *
+	 * @return void
+	 * @see \Net\Gearman\Task::attachCallback()
+	 */
+	public function status($numerator, $denominator) {
+		if (!count($this->callback[self::TASK_STATUS])) {
+			return;
+		}
+
+		foreach ($this->callback[self::TASK_STATUS] as $callback) {
+			call_user_func($callback,
+				$this->func,
+				$this->handle,
+				$numerator,
+				$denominator);
+		}
+	}
 }
