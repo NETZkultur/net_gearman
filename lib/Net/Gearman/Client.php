@@ -475,14 +475,11 @@ class Client implements ServerSetting {
 			try {
 				$conn = Connection::connect($server, $timeout);
 				if (!Connection::isConnected($conn)) {
-					unset($this->servers[$server]);
 					continue;
 				}
 
 				$this->gearmanServerConnections[] = $conn;
 			} catch (Exception $e) {
-				unset($this->servers[$server]);
-				continue;
 			}
 		}
 	}
