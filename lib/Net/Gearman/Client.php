@@ -54,6 +54,9 @@ class Client implements ServerSetting {
 	 */
 	protected $timeout = 1000;
 
+
+	protected $flexiHash;
+
 	/**
 	 * @param array $servers An array of servers or a single server
 	 * @param integer $timeout Timeout in microseconds
@@ -63,6 +66,7 @@ class Client implements ServerSetting {
 	 */
 	public function __construct($timeout = 1000) {
 		$this->timeout = $timeout;
+		$this->flexiHash = new \Flexihash();
 	}
 
 	public function getServers() {
@@ -104,6 +108,7 @@ class Client implements ServerSetting {
 		if (isset($this->servers[$server])) {
 			throw new \InvalidArgumentException("Server '$server' is already registered");
 		}
+		$this->flexiHash->addTarget($server);
 
 		$this->servers[$server] = true;
 
@@ -122,16 +127,20 @@ class Client implements ServerSetting {
 	 *
 	 * @return resource A connection to a Gearman server
 	 */
-	protected function getConnection() {
+	protected function getConnection($uniqueId) {
 		$connection = null;
 		if (count($this->gearmanServerConnections) == 0) {
 			throw new Exception("Can't get a connection, there are no active Servers left");
 		}
 
 		while ($connection == null) {
-			$randomServer = array_rand($this->gearmanServerConnections);
-			if (array_key_exists($randomServer, $this->gearmanServerConnections)) {
-				$connection = $this->gearmanServerConnections[$randomServer];
+			$randomServers = $this->flexiHash->lookupList($uniqueId, 5);
+			if (count($randomServers) > 0) {
+				foreach ($randomServers as $randomServer) {
+					if (array_key_exists($randomServer, $this->gearmanServerConnections)) {
+						$connection = $this->gearmanServerConnections[$randomServer];
+					}
+				}
 			}
 		}
 
@@ -321,7 +330,7 @@ class Client implements ServerSetting {
 			$params['epoch'] = $task->epoch;
 		}
 
-		$s = $this->getConnection();
+		$s = $this->getConnection($task->uniq);
 		Connection::send($s, $type, $params);
 
 		if (!is_array(Connection::$waiting[(int)$s])) {
@@ -461,7 +470,7 @@ class Client implements ServerSetting {
 	/**
 	 * Destructor
 	 *
-	 * @return      void
+	 * @return   void
 	 */
 	public function __destruct() {
 		$this->disconnect();
@@ -478,7 +487,7 @@ class Client implements ServerSetting {
 					continue;
 				}
 
-				$this->gearmanServerConnections[] = $conn;
+				$this->gearmanServerConnections[$server] = $conn;
 			} catch (Exception $e) {
 			}
 		}
