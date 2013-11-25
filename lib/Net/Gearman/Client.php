@@ -21,6 +21,7 @@ namespace Net\Gearman;
 	 * @link      http://pear.php.net/package/Net_Gearman
 	 * @link      http://www.danga.com/gearman/
 	 */
+use Flexihash\Flexihash;
 
 /**
  * A client for submitting jobs to Gearman
@@ -66,7 +67,7 @@ class Client implements ServerSetting {
 	 */
 	public function __construct($timeout = 1000) {
 		$this->timeout = $timeout;
-		$this->flexiHash = new \Flexihash();
+		$this->flexiHash = new Flexihash();
 	}
 
 	public function getServers() {
